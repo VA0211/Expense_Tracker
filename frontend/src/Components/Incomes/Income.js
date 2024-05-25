@@ -7,7 +7,11 @@ import IncomeItem from '../IncomeItem/IncomeItem';
 
 function Income() {
   const {addIncome, incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
-  
+
+function nWCom(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
   useEffect(() =>{
     getIncomes()
   }, [])
@@ -15,8 +19,8 @@ function Income() {
   return (
     <IncomeStyled>
         <InnerLayout>
-            <h1>Incomes</h1>
-            <h2 className="total-income">Total Income: <span>{totalIncome()} đ</span></h2>
+            <h1>Thu nhập</h1>
+            <h2 className="total-income">Tổng thu nhập: <span>{nWCom(totalIncome())} đ</span></h2>
             <div className="income-content">
               <div className="form-container"></div>
                 <Form/>
@@ -28,7 +32,7 @@ function Income() {
                   id={_id} 
                   title={title} 
                   description={description} 
-                  amount={amount} 
+                  amount={nWCom(amount)} 
                   date={date} 
                   type={type}
                   category={category} 

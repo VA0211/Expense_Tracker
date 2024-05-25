@@ -44,7 +44,7 @@ function ExpenseForm() {
                     type="text" 
                     value={title}
                     name={'title'} 
-                    placeholder="Expense Title"
+                    placeholder="Tên chi tiêu"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -52,14 +52,14 @@ function ExpenseForm() {
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'Expense Amount'}
+                    placeholder={'Lượng chi tiêu'}
                     onChange={handleInput('amount')} 
                 />
             </div>
             <div className="input-control">
                 <DatePicker 
                     id='date'
-                    placeholderText='Enter A Date'
+                    placeholderText='Ngày/Tháng/Năm'
                     selected={date}
                     dateFormat="dd/MM/yyyy"
                     onChange={(date) => {
@@ -69,23 +69,23 @@ function ExpenseForm() {
             </div>
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled >Select Option</option>
-                    <option value="education">Education</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="health">Health</option>
+                    <option value="" disabled >Loại chi tiêu</option>
+                    <option value="education">Giáo dục</option>
+                    <option value="groceries">Tạp hoá</option>
+                    <option value="health">Sức khoẻ</option>
                     <option value="subscriptions">Subscriptions</option>
                     <option value="takeaways">Takeaways</option>
-                    <option value="clothing">Clothing</option>  
-                    <option value="travelling">Travelling</option>  
-                    <option value="other">Other</option>  
+                    <option value="clothing">Quần áo</option>  
+                    <option value="travelling">Di chuyển</option>  
+                    <option value="other">Khác</option>  
                 </select>
             </div>
             <div className="input-control">
-                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
+                <textarea name="description" value={description} placeholder='Mô tả' id="description" cols="30" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
                 <Button 
-                    name={'Add Expense'}
+                    name={'Thêm'}
                     icon={plus}
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}

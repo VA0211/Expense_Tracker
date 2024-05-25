@@ -9,14 +9,18 @@ import ExpenseForm from './ExpenseForm';
 function Expenses() {
     const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
+function nWCom(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
     useEffect(() =>{
         getExpenses()
     }, [])
     return (
         <ExpenseStyled>
             <InnerLayout>
-                <h1>Expenses</h1>
-                <h2 className="total-income">Total Expense: <span>{totalExpenses()} đ</span></h2>
+                <h1>Chi tiêu</h1>
+                <h2 className="total-income">Tổng chi tiêu: <span>{nWCom(totalExpenses())} đ</span></h2>
                 <div className="income-content">
                     <div className="form-container">
                         <ExpenseForm />
@@ -30,7 +34,7 @@ function Expenses() {
                                 id={_id} 
                                 title={title} 
                                 description={description} 
-                                amount={amount} 
+                                amount={nWCom(amount)} 
                                 date={date} 
                                 type={type}
                                 category={category} 
@@ -63,7 +67,7 @@ const ExpenseStyled = styled.div`
         span{
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--color-red);
+            color: var(--color-green);
         }
     }
     .income-content{

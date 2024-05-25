@@ -5,6 +5,8 @@ const BASE_URL = "http://localhost:5000/api/v1/";
 
 const GlobalContext = React.createContext()
 
+
+
 export const GlobalProvider = ({children}) => {
 
     const [incomes, setIncomes] = useState([])
@@ -35,7 +37,6 @@ export const GlobalProvider = ({children}) => {
         incomes.forEach((income) =>{
             totalIncome = totalIncome + income.amount
         })
-
         return totalIncome;
     }
 
@@ -63,7 +64,6 @@ export const GlobalProvider = ({children}) => {
         expenses.forEach((income) =>{
             totalIncome = totalIncome + income.amount
         })
-
         return totalIncome;
     }
 

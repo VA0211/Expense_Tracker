@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../context/globalContext';
 
+function nWCom(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function History() {
     const {transactionHistory} = useGlobalContext()
 
@@ -9,7 +13,7 @@ function History() {
 
     return (
         <HistoryStyled>
-            <h2>Recent History</h2>
+            <h2>Lịch sử thu chi</h2>
             {history.map((item) =>{
                 const {_id, title, amount, type} = item
                 return (
@@ -24,7 +28,7 @@ function History() {
                             color: type === 'expense' ? 'red' : 'var(--color-green)'
                         }}>
                             {
-                                type === 'expense' ? `-${amount <= 0 ? 0 : amount}` : `+${amount <= 0 ? 0: amount}`
+                                type === 'expense' ? `-${nWCom(amount <= 0 ? 0 : amount)}đ` : `+${nWCom(amount <= 0 ? 0: amount)}đ`
                             }
                         </p>
                     </div>
