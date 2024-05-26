@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import avatar from '../../img/avatar.png'
+import avatar from '../../img/fin.jpg'
 import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems';
 

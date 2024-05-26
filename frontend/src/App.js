@@ -56,4 +56,8 @@ const AppStyled = styled.div`
   };
 `;
 
+const Content = styled.div`
+  transform: scale(0.88); /* Scale down the content */
+`;
+
 export default App;

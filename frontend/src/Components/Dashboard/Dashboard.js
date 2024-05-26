@@ -100,6 +100,10 @@ const DashboardStyled = styled.div`
                     grid-column: span 2;
                 }
                 .income, .expense, .balance {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                     background: #FFFFFF;
                     border: 2px solid #FCF6F9;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
@@ -122,10 +126,6 @@ const DashboardStyled = styled.div`
 
                 .balance {
                     grid-column: 2 / 4;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
                     p {
                         color: var(--color-green);
                         opacity: 0.6;
