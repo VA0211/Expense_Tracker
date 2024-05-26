@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../../History/History';
 import { InnerLayout } from '../../styles/Layouts';
-// import { dollar } from '../../utils/Icons';
 import Chart from '../Chart/Chart';
 
 function nWCom(x) {
@@ -11,7 +10,7 @@ function nWCom(x) {
 }
 
 function Dashboard() {
-    const {totalExpenses,incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
+    const { totalExpenses, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
 
     useEffect(() => {
         getIncomes()
@@ -74,63 +73,92 @@ function Dashboard() {
 }
 
 const DashboardStyled = styled.div`
-    .stats-con{
+    --max-width-1: 1300px;
+    --font-size-1: 1.2rem;
+    --max-width-2: 1000px;
+    --font-size-2: 1rem;
+    --max-width-3: 950px;
+    --font-size-3: 0.5rem;
+
+    h1 {
+        border: 1px;
+        margin-bottom: 0.5em;
+    }
+    .stats-con {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 2rem;
-        .chart-con{
+        .chart-con {
             grid-column: 1 / 4;
             height: 400px;
-            .amount-con{
+            .amount-con {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 2rem;
                 margin-top: 2rem;
-                .income, .expense{
+                .income, .expense {
                     grid-column: span 2;
                 }
-                .income, .expense, .balance{
+                .income, .expense, .balance {
                     background: #FFFFFF;
                     border: 2px solid #FCF6F9;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
                     padding: 1rem;
-                    p{
-                        font-size: 2.5rem;
+                    p {
+                        font-size: 2rem;
                         font-weight: 700;
+                        @media (max-width: var(--max-width-1)) {
+                            font-size: var(--font-size-1);
+                        }
+                        @media (max-width: var(--max-width-2)) {
+                            font-size: var(--font-size-2);
+                        }
+                        @media (max-width: var(--max-width-3)) {
+                            font-size: var(--font-size-3);
+                        }
                     }
                 }
 
-                .balance{
+                .balance {
                     grid-column: 2 / 4;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    p{
+                    p {
                         color: var(--color-green);
                         opacity: 0.6;
                         font-size: 2.5rem;
+                        @media (max-width: var(--max-width-1)) {
+                            font-size: var(--font-size-1);
+                        }
+                        @media (max-width: var(--max-width-2)) {
+                            font-size: var(--font-size-2);
+                        }
+                        @media (max-width: var(--max-width-3)) {
+                            font-size: var(--font-size-3);
+                        }
                     }
                 }
             }
         }
 
-        .history-con{
+        .history-con {
             grid-column: 4 / -1;
-            h2{
+            h2 {
                 margin: 1rem 0;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
             }
-            .salary-title{
+            .salary-title {
                 font-size: 1.2rem;
-                span{
+                span {
                     font-size: 1.8rem;
                 }
             }
-            .salary-item{
+            .salary-item {
                 background: #FFFFFF;
                 border: 2px solid #FCF6F9;
                 box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
@@ -139,13 +167,22 @@ const DashboardStyled = styled.div`
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                p{
+                p {
                     font-weight: 600;
                     font-size: 1.6rem;
+                    @media (max-width: var(--max-width-1)) {
+                        font-size: var(--font-size-1);
+                    }
+                    @media (max-width: var(--max-width-2)) {
+                        font-size: var(--font-size-2);
+                    }
+                    @media (max-width: var(--max-width-3)) {
+                        font-size: var(--font-size-3);
+                    }
                 }
             }
         }
     }
 `;
 
-export default Dashboard
+export default Dashboard;

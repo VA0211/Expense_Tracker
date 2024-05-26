@@ -10,4 +10,5 @@ export const MainLayout = styled.div`
 export const InnerLayout = styled.div`
     padding: 2rem 1.5rem;
     width: 100%;
+    margin: 0 auto; /* Center the InnerLayout itself if it has a parent container */
 `;

@@ -39,13 +39,17 @@ function History() {
 }
 
 const HistoryStyled = styled.div`
+    --background-color: #FFFFFF;
+    --border-color: #FCF6F9;
+    --box-shadow-color: rgba(0, 0, 0, 0.06);
+
     display: flex;
     flex-direction: column;
     gap: 1rem;
     .history-item{
-        background: #FFFFFF;
-        border: 2px solid #FCF6F9;
-        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+        background: var(--background-color);
+        border: 2px solid var(--border-color);
+        box-shadow: 0px 1px 15px var(--box-shadow-color);
         padding: 1rem;
         border-radius: 20px;
         display: flex;

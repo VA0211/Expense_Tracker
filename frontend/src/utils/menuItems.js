@@ -7,21 +7,21 @@ export const menuItems = [
         icon: dashboard,
         link: '/dashboard'
     },
+    // {
+    //     id: 2,
+    //     title: "",
+    //     icon: "",
+    //     link: "/dashboard",
+    // },
     {
         id: 2,
-        title: "",
-        icon: "",
-        link: "/dashboard",
-    },
-    {
-        id: 3,
-        title: "Incomes",
+        title: "Thu nhập",
         icon: trend,
         link: "/dashboard",
     },
     {
-        id: 4,
-        title: "Expenses",
+        id: 3,
+        title: "Chi Tiêu",
         icon: expenses,
         link: "/dashboard",
     },

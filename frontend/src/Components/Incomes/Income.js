@@ -22,8 +22,9 @@ function nWCom(x) {
             <h1>Thu nhập</h1>
             <h2 className="total-income">Tổng thu nhập: <span>{nWCom(totalIncome())} đ</span></h2>
             <div className="income-content">
-              <div className="form-container"></div>
+              <div className="form-container">
                 <Form/>
+              </div>
               <div className="incomes">
                 {incomes.map((income) => {
                   const {_id, title, amount, date, category, description, type} = income;     

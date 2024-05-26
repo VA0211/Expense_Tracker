@@ -29,37 +29,36 @@ ChartJs.register(
 function Chart() {
     const {incomes, expenses} = useGlobalContext()
 
+    // Sort incomes and expenses by date
+    const sortedIncomes = incomes.slice().sort((a, b) => new Date(a.date) - new Date(b.date))
+    const sortedExpenses = expenses.slice().sort((a, b) => new Date(a.date) - new Date(b.date))
+
     const data = {
-        labels: incomes.map((inc) =>{
-            const {date} = inc
+        labels: sortedIncomes.map((inc) => {
+            const { date } = inc
             return dateFormat(date)
         }),
         datasets: [
             {
                 label: 'Thu nhập',
-                data: [
-                    ...incomes.map((income) => {
-                        const {amount} = income
-                        return amount
-                    })
-                ],
+                data: sortedIncomes.map((income) => {
+                    const { amount } = income
+                    return amount
+                }),
                 backgroundColor: 'green',
                 tension: .2
             },
             {
                 label: 'Chi tiêu',
-                data: [
-                    ...expenses.map((expense) => {
-                        const {amount} = expense
-                        return amount
-                    })
-                ],
+                data: sortedExpenses.map((expense) => {
+                    const { amount } = expense
+                    return amount
+                }),
                 backgroundColor: 'red',
                 tension: .2
             }
         ]
     }
-
 
     return (
         <ChartStyled >
@@ -75,6 +74,7 @@ const ChartStyled = styled.div`
     padding: 1rem;
     border-radius: 20px;
     height: 100%;
+    width: 100%;
 `;
 
 export default Chart
